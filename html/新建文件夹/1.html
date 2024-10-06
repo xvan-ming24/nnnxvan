@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<style>
+		.dateBirthday {
+			position: fixed;
+			right: -500px;
+			border-radius: 10px;
+			width: 500px;
+			height: 400px;
+			background-color: black;
+			background-image: url(../image/9.17.jpg);
+			background-size: cover;
+			/* 让图片放大占满盒子 */
+			background-position: center;
+			/* 图片居中显示 */
+			background-repeat: no-repeat;
+			/* 防止图片重复 */
+		}
+
+		.roots {
+			
+			padding-top: 5px;
+			display: grid;
+			grid-template-columns: repeat(4, 1fr);
+			gap: 15px 0;
+		}
+
+		.grid-icon-btns {
+			margin: 0 auto;
+			border-radius: 5px;
+			font-family: '华文琥珀';
+			color: rgb(0, 0, 0, 80%);
+			font-size: 25px;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+		}
+
+		.grid-icon-btns:nth-child(26) {
+			width: 70px;
+			height: 70px;
+			/* border-radius: 35px;
+			background-color: rgb(255 255 255 / 50%); */
+			color: rgb(255, 0, 0);
+			/* background:linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)), url('../image/日期.jpg') no-repeat 50% 50%/ cover;
+			background-size: 95px;
+			background-position: cover;
+			background-repeat: no-repeat; */
+
+		}
+
+		.lantern {
+			width: 100px;
+			position: absolute;
+			left: -100px;
+			top: 200px;
+		}
+	</style>
+</head>
+
+<body>
+	<div class="dateBirthday">
+		<img class="lantern" src="../image/灯笼kitty.png" alt="">
+		<div class="roots">
+			<div class="grid-icon-btns"></div>
+			<div class="grid-icon-btns"></div>
+			<div class="grid-icon-btns"></div>
+			<div class="grid-icon-btns"></div>
+			<div class="grid-icon-btns"></div>
+			<div class="grid-icon-btns"></div>
+			<div class="grid-icon-btns"></div>
+			<div class="grid-icon-btns"></div>
+			<div class="grid-icon-btns"></div>
+			<div class="grid-icon-btns"></div>
+			<div class="grid-icon-btns"></div>
+			<div class="grid-icon-btns"></div>
+			<div class="grid-icon-btns"></div>
+			<div class="grid-icon-btns"></div>
+			<div class="grid-icon-btns"></div>
+			<div class="grid-icon-btns"></div>
+			<div class="grid-icon-btns"></div>
+			<div class="grid-icon-btns"></div>
+			<div class="grid-icon-btns"></div>
+			<div class="grid-icon-btns"></div>
+			<div class="grid-icon-btns"></div>
+			<div class="grid-icon-btns"></div>
+			<div class="grid-icon-btns"></div>
+			<div class="grid-icon-btns"></div>
+			<div class="grid-icon-btns"></div>
+			<div class="grid-icon-btns"></div>
+			<div class="grid-icon-btns"></div>
+			<div class="grid-icon-btns"></div>
+			<div class="grid-icon-btns"></div>
+			<div class="grid-icon-btns"></div>
+			<div class="grid-icon-btns"></div>
+			<div class="grid-icon-btns"></div>
+			<div class="grid-icon-btns"></div>
+		</div>
+	</div>
+</body>
+<script src="../js/jquery.mini.js"></script>
+<script>
+	let box = document.querySelectorAll('.grid-icon-btns')
+	for (let i = 1; i <= 31; i++) {
+		box[i + 1].innerText = `${i}`
+	}
+	console.log(box)
+
+	/*
+	定义一个变量，表示侧边栏状态，ture表示被隐藏（默认），false表示展开
+	获取按钮，监听点击事件
+	判断当前侧边栏的状态，如果被隐藏（变量值为true），就展开他：设置right，更新变量值为false
+	如果展开（变量值为false），就隐藏他：设置right，更让新变量值为true。
+	*/
+
+	let flag = true //ture表示被隐藏（默认）
+	$('.lantern').click(function () {
+		$('.dateBirthday').stop().animate({
+			right: '0px'
+		},1500)
+		$('.lantern').hide()
+		setTimeout(function () {
+			$('.dateBirthday').stop().animate({
+				right: '-500px'
+			},1500,function(){
+				$('.lantern').show()
+			})
+			
+		}, 3000)
+	})
+
+</script>
+
+</html>

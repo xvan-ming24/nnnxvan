@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hover to Show Box</title>
+    <style>
+        body {
+            height: 100vh;
+            margin: 0;
+            overflow: hidden; /* 防止滚动条出现 */
+        }
+        #box {
+            width: 200px;
+            height: 200px;
+            background-color: lightblue;
+            position: absolute;
+            top: 50%;
+            left: -220px; /* 初始位置在屏幕外 */
+            transform: translateY(-50%);
+            transition: left 0.3s ease; /* 平滑过渡效果 */
+        }
+    </style>
+</head>
+<body>
+
+<div id="box">这是一个盒子</div>
+
+<script>
+    const box = document.getElementById('box');
+    let isBoxVisible = false;
+
+    document.addEventListener('mousemove', (event) => {
+        const { clientX } = event;
+
+        // 当鼠标靠近左边缘（距离小于20px）时，显示盒子
+        if (clientX < 20) {
+            box.style.left = '10px'; // 显示盒子
+            isBoxVisible = true;
+        }
+    });
+
+    // 监听鼠标移出盒子区域的事件
+    box.addEventListener('mouseleave', () => {
+        box.style.left = '-220px'; // 隐藏盒子
+        isBoxVisible = false;
+    });
+
+    // 在鼠标进入盒子区域时，不做任何操作，保持盒子可见
+    box.addEventListener('mouseenter', () => {
+        box.style.left = '10px'; // 保持盒子可见
+    });
+</script>
+
+</body>
+</html>

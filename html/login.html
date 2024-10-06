@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../css/login.css">
+  <style>
+    body,
+    html {
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+    }
+
+    body {
+      background: #000;
+    }
+
+    canvas {
+      width: 100%;
+      height: 100vh;
+      display: block;
+    }
+    .containers {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 20px;
+        }
+        @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+  
+  .rotating {
+    width: 60px;
+    border-radius: 30px;
+    animation: spin 4s linear infinite;
+  }
+  </style>
+  <title>星空</title>
+</head>
+
+<body>
+  <!-- 樱花 -->
+  <div class="flower">
+    <img src="../image/眨眼kitty.png" alt="" style="width: 50px;">
+    <img src="../image/眨眼kitty.png" alt="" style="width: 50px;">
+    <img src="../image/眨眼kitty.png" alt="" style="width: 50px;">
+    <img src="../image/眨眼kitty.png" alt="" style="width: 50px;">
+    <img src="../image/眨眼kitty.png" alt="" style="width: 50px;">
+    <img src="../image/害羞kitty.png" alt="" style="width: 50px;">
+    <img src="../image/害羞kitty.png" alt="" style="width: 50px;">
+    <img src="../image/害羞kitty.png" alt="" style="width: 50px;">
+    <img src="../image/害羞kitty.png" alt="" style="width: 50px;">
+    <img src="../image/害羞kitty.png" alt="" style="width: 50px;">
+    <img src="../image/叉子kitty.png" alt="" style="width: 50px;">
+    <img src="../image/叉子kitty.png" alt="" style="width: 50px;">
+    <img src="../image/叉子kitty.png" alt="" style="width: 50px;">
+    <img src="../image/叉子kitty.png" alt="" style="width: 50px;">
+    <img src="../image/叉子kitty.png" alt="" style="width: 50px;">
+    <img src="../image/叉子kitty.png" alt="" style="width: 50px;">
+    <img src="../image/叉子kitty.png" alt="" style="width: 50px;">
+    <img src="../image/叉子kitty.png" alt="" style="width: 50px;">
+    <img src="../image/委屈kitty.png" alt="" style="width: 50px;">
+    <img src="../image/委屈kitty.png" alt="" style="width: 50px;">
+    <img src="../image/委屈kitty.png" alt="" style="width: 50px;">
+    <img src="../image/委屈kitty.png" alt="" style="width: 50px;">
+    <img src="../image/flower.png" alt="" style="width: 10px;">
+    <img src="../image/flower.png" alt="" style="width: 10px;">
+    <img src="../image/flower.png" alt="" style="width: 10px;">
+    <img src="../image/flower.png" alt="" style="width: 10px;">
+    <img src="../image/flower.png" alt="" style="width: 10px;">
+</div>
+<!-- hello kitty图标 -->
+  <img src="../image/20150920004628_j2zJr.gif" alt="" style="width:60px; border-radius: 30px; position: fixed; bottom: 20px; right: 0;">
+  <canvas id="canvas"></canvas>
+  <div class="container">
+    <!-- 旋转头像 -->
+    <img src="../image/微信图片_20240825230837.jpg" alt="" style="width:60px;border-radius: 30px;" class="rotating">
+    <div class="containers"></div>
+    <!-- 登录表单 -->
+    <form class="form">
+        <input id="userName" name="userName" type="text" placeholder="帅气的网友">
+        <input id="pwd" name="pwd" type="password" placeholder="密码">
+        <button class="reward-btn" type="submit" id="login-button">
+          <span class="IconContainer">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 60 20"
+              class="box-top box"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-width="4"
+                stroke="#6A8EF6"
+                d="M2 18L58 18"
+              ></path>
+              <circle
+                stroke-width="5"
+                stroke="#6A8EF6"
+                fill="#101218"
+                r="7"
+                cy="9.5"
+                cx="20.5"
+              ></circle>
+              <circle
+                stroke-width="5"
+                stroke="#6A8EF6"
+                fill="#101218"
+                r="7"
+                cy="9.5"
+                cx="38.5"
+              ></circle>
+            </svg>
+        
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 58 44"
+              class="box-body box"
+            >
+              <mask fill="white" id="path-1-inside-1_81_19">
+                <rect rx="3" height="44" width="58"></rect>
+              </mask>
+              <rect
+                mask="url(#path-1-inside-1_81_19)"
+                stroke-width="8"
+                stroke="#6A8EF6"
+                fill="#101218"
+                rx="3"
+                height="44"
+                width="58"
+              ></rect>
+              <line
+                stroke-width="6"
+                stroke="#6A8EF6"
+                y2="29"
+                x2="58"
+                y1="29"
+                x1="-3.61529e-09"
+              ></line>
+              <path
+                stroke-linecap="round"
+                stroke-width="5"
+                stroke="#6A8EF6"
+                d="M45.0005 20L36 3"
+              ></path>
+              <path
+                stroke-linecap="round"
+                stroke-width="5"
+                stroke="#6A8EF6"
+                d="M21 3L13.0002 19.9992"
+              ></path>
+            </svg>
+        
+            <span class="coin"></span>
+          </span>
+          <span class="text">Rewards</span>
+        </button>
+    </form> 
+</div>
+<script src="../js/jquery-2.1.1.min.js" type="text/javascript"></script>
+  <script>
+    const canvas = document.getElementById('canvas');
+    const ctx = canvas.getContext('2d');
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+
+    class Star {
+      constructor(x, y, brightness, type) {
+        this.x = x;
+        this.y = y;
+        this.brightness = brightness;
+        this.alpha = 1;
+        this.fade = Math.random() * 0.05 + 0.01;
+        this.type = type;
+        this.size = (type === 'cross') ? 3 : 1; // 根据类型设置大小
+      }
+
+      draw() {
+        ctx.beginPath();
+        if (this.type === 'cross') {
+          ctx.strokeStyle = `rgba(255, 255, 255, ${this.alpha})`;
+          ctx.lineWidth = 1; // 设置线条粗细
+          ctx.moveTo(this.x, this.y - 1 * this.size);
+          ctx.lineTo(this.x, this.y + 1 * this.size);
+          ctx.moveTo(this.x - 1 * this.size, this.y);
+          ctx.lineTo(this.x + 1 * this.size, this.y);
+          ctx.stroke();
+        } else {
+          ctx.fillStyle = `rgba(255, 255, 255, ${this.alpha})`;
+          ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+          ctx.fill();
+        }
+      }
+
+      update() {
+        this.brightness += Math.random() * 0.1 - 0.05;
+        this.brightness = Math.min(Math.max(this.brightness, 0), 1);
+
+        this.alpha += this.fade;
+        if (this.alpha > 1 || this.alpha < 0) {
+          this.fade = -this.fade;
+        }
+      }
+    }
+
+    let stars = [];
+    const numStars = 200;
+
+    function createStars() {
+      for (let i = 0; i < numStars; i++) {
+        let type = Math.random() > 0.5 ? 'cross' : 'particle';
+        stars.push(new Star(
+          Math.random() * canvas.width,
+          Math.random() * canvas.height,
+          Math.random(),
+          type
+        ));
+      }
+    }
+
+    function animateStars() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      for (let i = 0; i < stars.length; i++) {
+        stars[i].update();
+        stars[i].draw();
+      }
+      requestAnimationFrame(animateStars);
+    }
+
+    let shootingStar = null;
+
+    function createShootingStar() {
+      const startX = Math.random() * canvas.width * 0.5; // 从左侧开始
+      const startY = 0; // 从顶部开始
+      const speed = 4 + Math.random() * 6;
+      const angle = Math.PI / 6 + Math.random() * Math.PI / 3; // 修改划过的角度范围
+
+      // 增加长度、宽度和颜色属性
+      shootingStar = { x: startX, y: startY, speed, angle, length: 80 + Math.random() * 40, thickness: 1 + Math.random() * 2, color: 'rgba(255, 255, 255, 1)' };
+    }
+
+    function animateShootingStar() {
+      if (!shootingStar) {
+        if (Math.random() < 0.01) {
+          createShootingStar();
+        }
+      } else {
+        const { x, y, speed, angle, length, thickness, color } = shootingStar;
+        ctx.save();
+        ctx.translate(x, y);
+        ctx.rotate(angle);
+
+        const gradient = ctx.createLinearGradient(0, 0, length, 0);
+        gradient.addColorStop(0, color);
+        gradient.addColorStop(1, 'rgba(255, 255, 255, 0)');
+
+        ctx.strokeStyle = gradient;
+        ctx.lineWidth = thickness;
+        ctx.beginPath();
+        ctx.moveTo(0, 0);
+        ctx.lineTo(length, 0);
+        ctx.stroke();
+
+        ctx.restore();
+
+        shootingStar.x += speed * Math.cos(angle);
+        shootingStar.y += speed * Math.sin(angle);
+
+        if (shootingStar.x > canvas.width || shootingStar.y > canvas.height) {
+          shootingStar = null;
+        }
+      }
+      requestAnimationFrame(animateShootingStar);
+    }
+
+    createStars();
+    animateStars();
+    animateShootingStar();
+  </script>
+  <script src="../js/login.js"></script>
+  <script src="../js/Automatic Text.js"></script>
+</body>
+
+</html>
